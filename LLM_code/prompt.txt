@@ -1,0 +1,40 @@
+Please extract user-defined information from the code and output it in the form of variable name: variable value.
+code as follow:
+#!/bin/bash
+
+IMG="pyo3-test"
+MINIO_IMG=quay.io/minio/minio
+
+ACCESSKEY="AKIAIOSFODMM7EXAMPLE"
+SECRETKEY="wJalrXUtnFEMI/K7MDENG/bQxRfiCYEXAMPLEKEY"
+
+echo "Starting local minio instance"
+docker run --rm -d --name local-minio \
+  -p 9000:9000 \
+  -p 9001:9001 \
+output:
+{'IMG':"pyo3-test",
+'MINIO_IMG':"quay.io/minio/minio",
+'ACCESSKEY':"AKIAIOSFODMM7EXAMPLE",
+'SECRETKEY':"wJalrXUtnFEMI/K7MDENG/bQxRfiCYEXAMPLEKEY",
+'port':"9000"}
+
+code as follow:
+{
+  "args": {}, 
+  "headers": {
+    "Accept-Encoding": "identity", 
+    "Host": "httpbin.org", 
+    "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko)", 
+    "X-Amzn-Trace-Id": "Root=1-63da1945-7c38c759080100c9130dab95"
+  }, 
+  "origin": "223.80.102.182", 
+  "url": "http://httpbin.org/get"
+}
+output:
+{"Host": "httpbin.org",
+"User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko)",
+"X-Amzn-Trace-Id": "Root=1-63da1945-7c38c759080100c9130dab95",
+"origin": "223.80.102.182",
+"url": "http://httpbin.org/get"}
+
